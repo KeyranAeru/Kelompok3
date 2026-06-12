@@ -6,16 +6,17 @@
     <title>Dashboard Jurnalisme Modern</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <style>
-        /* Memastikan scroll smooth dan snapping antar slide */
-        html {
-            scroll-behavior: smooth;
-            scroll-snap-type: y mandatory;
+        /* Fitur scroll snap hanya aktif di layar laptop/desktop agar di HP tidak terpotong */
+        @media (min-width: 1024px) {
+            html {
+                scroll-behavior: smooth;
+                scroll-snap-type: y mandatory;
+            }
+            section {
+                scroll-snap-align: start;
+                height: 100vh;
+            }
         }
-        section {
-            scroll-snap-align: start;
-            height: 100vh;
-        }
-        /* Menghilangkan scrollbar tapi tetap bisa di-scroll */
         .no-scrollbar::-webkit-scrollbar {
             display: none;
         }
@@ -23,7 +24,7 @@
 </head>
 <body class="bg-slate-900 text-white font-sans overflow-x-hidden">
 
-    <div class="fixed right-5 top-1/2 transform -translate-y-1/2 z-50 flex flex-col gap-3">
+    <div class="hidden lg:flex fixed right-5 top-1/2 transform -translate-y-1/2 z-50 flex flex-col gap-3">
         <a href="#slide1" class="w-3 h-3 rounded-full bg-blue-500 hover:scale-125 transition-all" title="Home"></a>
         <a href="#slide2" class="w-3 h-3 rounded-full bg-emerald-500 hover:scale-125 transition-all" title="Grafik Data"></a>
         <a href="#slide3" class="w-3 h-3 rounded-full bg-amber-500 hover:scale-125 transition-all" title="Etika"></a>
@@ -31,65 +32,62 @@
         <a href="#slide5" class="w-3 h-3 rounded-full bg-rose-500 hover:scale-125 transition-all" title="Implementasi"></a>
     </div>
 
-    <section id="slide1" class="flex flex-col justify-center items-center px-8 md:px-24 bg-gradient-to-br from-slate-900 to-blue-950">
-        <div class="max-w-4xl text-center">
-            <div class="text-blue-400 font-bold tracking-wide uppercase text-sm mb-14">
-                <span class="block text-base font-extrabold mb-1 text-teal-400">Kelompok 3:</span>
-                <ul class="flex flex-wrap justify-center gap-x-4 gap-y-1 text-xs md:text-sm opacity-80 normal-case">
-                    <li>• Hiswan Ramadhan (06520230175)</li>
-                    <li>• Muh. Ramdani Fajar Rahman (06520220192)</li>
-                    <li>• Ade Nilwanda (06520230122)</li>
-                    <li>• Andi Maharatih AR (06520230129)</li>
-                    <li>• Nasywa Fadyah Zainal (06520230121)</li>
-                    <li>• Nur Aziza (06520230166)</li>
-                    <li>• Nursyariah Ilman (06520230118)</li>
-                    <li>• Nurul Azizah Wismi (06520230161)</li>
+    <section id="slide1" class="flex flex-col justify-center items-center px-4 py-12 md:px-24 min-h-screen h-auto lg:h-100vh bg-gradient-to-br from-slate-900 to-blue-950">
+        <div class="max-w-4xl text-center w-full">
+            <div class="text-blue-400 font-bold tracking-wide uppercase text-sm mb-6 md:mb-10">
+                <span class="block text-base font-extrabold mb-2 text-teal-400">Kelompok 3:</span>
+                <ul class="flex flex-col md:flex-row md:flex-wrap justify-center items-center gap-x-4 gap-y-1.5 text-xs md:text-sm bg-slate-950/40 p-4 rounded-xl border border-blue-500/10 shadow-inner">
+                    <li>Hiswan Ramadhan (06520230175)</li>
+                    <li>Muh. Ramdani Fajar Rahman (06520220192)</li>
+                    <li>Ade Nilwanda (06520230122)</li>
+                    <li>Andi Maharatih AR (06520230129)</li>
+                    <li>Nasywa Fadyah Zainal (06520230121)</li>
+                    <li>Nur Aziza (06520230166)</li>
+                    <li>Nursyariah Ilman (06520230118)</li>
+                    <li>Nurul Azizah Wismi (06520230161)</li>
                 </ul>
             </div>
             
-            <h1 class="text-4xl md:text-6xl font-extrabold mt-2 mb-6 bg-gradient-to-r from-blue-400 to-teal-400 bg-clip-text text-transparent">
+            <h1 class="text-3xl md:text-6xl font-extrabold mt-2 mb-4 bg-gradient-to-r from-blue-400 to-teal-400 bg-clip-text text-transparent leading-tight">
                 Mobile Journalism (Mojo)
             </h1>
-            <p class="text-lg text-slate-300 leading-relaxed mb-8">
-                Konsep dalam dunia jurnalisme yang mengandalkan penggunaan perangkat mobile, khususnya smartphone, dalam proses peliputan dan distribusi berita. Menjadikannya pilihan yang sangat menarik dalam dunia jurnalisme modern.
+            <p class="text-sm md:text-lg text-slate-300 leading-relaxed mb-8 max-w-2xl mx-auto">
+                Konsep dalam dunia jurnalisme yang mengandalkan penggunaan perangkat mobile, khususnya smartphone, dalam proses peliputan dan distribusi berita.
             </p>
             
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-left">
                 <div class="bg-slate-800/50 p-4 rounded-xl border border-blue-500/20 shadow-lg">
-                    <span class="text-blue-400 font-bold text-xl block mb-2">01</span>
-                    <p class="text-sm font-medium">Lebih Ekonomis Dibanding Jurnalisme Tradisional</p>
+                    <span class="text-blue-400 font-bold text-lg block mb-1">01</span>
+                    <p class="text-xs md:text-sm font-medium">Lebih Ekonomis Dibanding Jurnalisme Tradisional</p>
                 </div>
                 <div class="bg-slate-800/50 p-4 rounded-xl border border-blue-500/20 shadow-lg">
-                    <span class="text-blue-400 font-bold text-xl block mb-2">02</span>
-                    <p class="text-sm font-medium">Mudah Dilakukan</p>
+                    <span class="text-blue-400 font-bold text-lg block mb-1">02</span>
+                    <p class="text-xs md:text-sm font-medium">Mudah Dilakukan</p>
                 </div>
                 <div class="bg-slate-800/50 p-4 rounded-xl border border-blue-500/20 shadow-lg">
-                    <span class="text-blue-400 font-bold text-xl block mb-2">03</span>
-                    <p class="text-sm font-medium">Portabel</p>
+                    <span class="text-blue-400 font-bold text-lg block mb-1">03</span>
+                    <p class="text-xs md:text-sm font-medium">Portabel</p>
                 </div>
                 <div class="bg-slate-800/50 p-4 rounded-xl border border-blue-500/20 shadow-lg">
-                    <span class="text-blue-400 font-bold text-xl block mb-2">04</span>
-                    <p class="text-sm font-medium">Jumlah Pemilik Smartphone yang Tinggi</p>
+                    <span class="text-blue-400 font-bold text-lg block mb-1">04</span>
+                    <p class="text-xs md:text-sm font-medium">Jumlah Pemilik Smartphone yang Tinggi</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="slide2" class="flex flex-col justify-center items-center px-4 md:px-12 bg-gradient-to-br from-slate-950 via-slate-900 to-emerald-950 overflow-hidden">
-        <div class="max-w-7xl w-full h-[90vh] flex flex-col">
-            
-            <div class="mb-6">
+    <section id="slide2" class="flex flex-col justify-center items-center px-4 py-12 md:px-12 min-h-screen h-auto lg:h-100vh bg-gradient-to-br from-slate-950 via-slate-900 to-emerald-950 overflow-x-hidden">
+        <div class="max-w-7xl w-full flex flex-col">
+            <div class="mb-6 text-center lg:text-left">
                 <h1 class="text-2xl md:text-3xl font-black text-white tracking-tight">
                     Lanskap Mobile Journalism dan Tantangan Informasi di Indonesia
                 </h1>
-                <div class="h-1 w-20 bg-emerald-500 mt-2"></div>
+                <div class="h-1 w-20 bg-emerald-500 mt-2 mx-auto lg:mx-0"></div>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 flex-1 no-scrollbar overflow-y-auto pb-5">
-                
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 w-full">
                 <div class="lg:col-span-7 space-y-5">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-                        
                         <div class="bg-slate-900/60 p-5 rounded-2xl border border-emerald-500/20 shadow-xl">
                             <h3 class="text-sm font-bold text-slate-200 mb-6 flex items-center gap-2">
                                 <span class="p-1.5 bg-sky-500/20 rounded-lg text-sky-400">📱</span> Tren Pengguna Smartphone Indonesia
@@ -146,43 +144,43 @@
                         <h3 class="text-sm font-bold text-slate-200 mb-6 flex items-center gap-2">
                             <span class="p-1.5 bg-emerald-500/20 rounded-lg text-emerald-400">📊</span> Konsumsi Berita Digital di Indonesia
                         </h3>
-                        <div class="flex items-end justify-between gap-4 h-24 px-5 border-b border-slate-700 pb-1">
+                        <div class="flex items-end justify-between gap-2 sm:gap-4 h-24 px-2 sm:px-5 border-b border-slate-700 pb-1">
                             <div class="flex flex-col items-center w-full">
                                 <span class="text-[10px] font-bold text-emerald-400">43%</span>
                                 <div class="bg-emerald-500 w-full rounded-t-md h-[43px]"></div>
-                                <span class="text-[9px] text-slate-500 mt-1">Medsos</span>
+                                <span class="text-[9px] text-slate-500 mt-1 truncate max-w-[50px] sm:max-w-none">Medsos</span>
                             </div>
                             <div class="flex flex-col items-center w-full">
                                 <span class="text-[10px] font-bold text-emerald-400">13%</span>
                                 <div class="bg-emerald-600 w-full rounded-t-md h-[13px]"></div>
-                                <span class="text-[9px] text-slate-500 mt-1">Situs</span>
+                                <span class="text-[9px] text-slate-500 mt-1 truncate max-w-[50px] sm:max-w-none">Situs</span>
                             </div>
                             <div class="flex flex-col items-center w-full">
                                 <span class="text-[10px] font-bold text-emerald-400">20%</span>
                                 <div class="bg-emerald-500 w-full rounded-t-md h-[20px]"></div>
-                                <span class="text-[9px] text-slate-500 mt-1">Chat</span>
+                                <span class="text-[9px] text-slate-500 mt-1 truncate max-w-[50px] sm:max-w-none">Chat</span>
                             </div>
                             <div class="flex flex-col items-center w-full">
                                 <span class="text-[10px] font-bold text-emerald-400">9%</span>
                                 <div class="bg-emerald-700 w-full rounded-t-md h-[9px]"></div>
-                                <span class="text-[9px] text-slate-500 mt-1">TV</span>
+                                <span class="text-[9px] text-slate-500 mt-1 truncate max-w-[50px] sm:max-w-none">TV</span>
                             </div>
                             <div class="flex flex-col items-center w-full">
                                 <span class="text-[10px] font-bold text-emerald-400">3%</span>
                                 <div class="bg-emerald-800 w-full rounded-t-md h-[3px]"></div>
-                                <span class="text-[9px] text-slate-500 mt-1">Digital</span>
+                                <span class="text-[9px] text-slate-500 mt-1 truncate max-w-[50px] sm:max-w-none">Digital</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="lg:col-span-5 space-y-5">
-                    <div class="bg-slate-900/60 p-5 rounded-2xl border border-rose-500/20 shadow-xl h-full flex flex-col">
+                <div class="lg:col-span-5">
+                    <div class="bg-slate-900/60 p-5 rounded-2xl border border-rose-500/20 shadow-xl flex flex-col h-full">
                         <h3 class="text-sm font-bold text-rose-400 mb-6 flex items-center gap-2">
                             <span class="p-1.5 bg-rose-500/20 rounded-lg text-rose-400">🛡️</span> Statistik Jumlah Hoaks (per Tahun)
                         </h3>
-                        <div class="relative flex-1 flex">
-                            <div class="flex flex-col justify-between text-[9px] text-slate-500 font-bold pr-2 text-right">
+                        <div class="relative h-40 flex">
+                            <div class="flex flex-col justify-between text-[9px] text-slate-500 font-bold pr-2 text-right w-8">
                                 <span>15k</span><span>12k</span><span>9k</span><span>6k</span><span>3k</span><span>0</span>
                             </div>
                             <div class="relative flex-1 border-b border-l border-slate-700">
@@ -196,9 +194,9 @@
                         <div class="flex justify-between px-8 mt-3 text-[9px] text-slate-500 font-bold">
                             <span>'18</span><span>'19</span><span>'20</span><span>'21</span><span>'22</span><span>'23</span><span>'24</span>
                         </div>
-                        <div class="mt-8 bg-rose-500/10 border border-rose-500/30 rounded-xl p-5 text-center">
+                        <div class="mt-6 bg-rose-500/10 border border-rose-500/30 rounded-xl p-5 text-center">
                             <p class="text-xs text-rose-200 font-bold uppercase mb-1">Total Hoaks Teridentifikasi</p>
-                            <h2 class="text-4xl font-black text-rose-500">15,000+</h2>
+                            <h2 class="text-3xl font-black text-rose-500">15,000+</h2>
                         </div>
                     </div>
                 </div>
@@ -206,17 +204,17 @@
         </div>
     </section>
 
-    <section id="slide3" class="flex flex-col justify-center items-center px-8 md:px-24 bg-gradient-to-br from-slate-900 to-amber-950">
+    <section id="slide3" class="flex flex-col justify-center items-center px-4 py-12 md:px-24 min-h-screen h-auto lg:h-100vh bg-gradient-to-br from-slate-900 to-amber-950">
         <div class="max-w-5xl w-full">
             <div class="text-center mb-10">
-                <h2 class="text-4xl md:text-5xl font-extrabold mt-2 bg-gradient-to-r from-amber-400 to-orange-400 bg-clip-text text-transparent">
+                <h2 class="text-3xl md:text-5xl font-extrabold mt-2 bg-gradient-to-r from-amber-400 to-orange-400 bg-clip-text text-transparent">
                     Tantangan & Etika Produksi Berita
                 </h2>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="bg-slate-800/40 p-6 rounded-2xl border border-amber-500/20">
-                    <h3 class="text-2xl font-bold text-amber-400 mb-4 border-b border-amber-500/20 pb-2">Tantangan Teknologi</h3>
-                    <ul class="space-y-3">
+                    <h3 class="text-xl font-bold text-amber-400 mb-4 border-b border-amber-500/20 pb-2">Tantangan Teknologi</h3>
+                    <ul class="space-y-3 text-sm">
                         <li class="flex items-start gap-2 text-slate-300"><span class="text-amber-400 mt-1">⚠️</span> <span>Disrupsi Model Bisnis</span></li>
                         <li class="flex items-start gap-2 text-slate-300"><span class="text-amber-400 mt-1">⚠️</span> <span>Keamanan Siber & Peretasan</span></li>
                         <li class="flex items-start gap-2 text-slate-300"><span class="text-amber-400 mt-1">⚠️</span> <span>Kesenjangan Digital (Digital Divide)</span></li>
@@ -224,8 +222,8 @@
                     </ul>
                 </div>
                 <div class="bg-slate-800/40 p-6 rounded-2xl border border-orange-500/20">
-                    <h3 class="text-2xl font-bold text-orange-400 mb-4 border-b border-orange-500/20 pb-2">Etika Berita Digital</h3>
-                    <ul class="space-y-3">
+                    <h3 class="text-xl font-bold text-orange-400 mb-4 border-b border-orange-500/20 pb-2">Etika Berita Digital</h3>
+                    <ul class="space-y-3 text-sm">
                         <li class="flex items-start gap-2 text-slate-300"><span class="text-orange-400 mt-1">⚖️</span> <span>Akurasi vs Kecepatan</span></li>
                         <li class="flex items-start gap-2 text-slate-300"><span class="text-orange-400 mt-1">⚖️</span> <span>Transparansi Penggunaan AI</span></li>
                         <li class="flex items-start gap-2 text-slate-300"><span class="text-orange-400 mt-1">⚖️</span> <span>Deepfake & Manipulasi Visual</span></li>
@@ -236,68 +234,68 @@
         </div>
     </section>
 
-    <section id="slide4" class="flex flex-col justify-center items-center px-8 md:px-24 bg-gradient-to-br from-slate-900 to-purple-950">
+    <section id="slide4" class="flex flex-col justify-center items-center px-4 py-12 md:px-24 min-h-screen h-auto lg:h-100vh bg-gradient-to-br from-slate-900 to-purple-950">
         <div class="max-w-4xl w-full">
-            <div class="text-center mb-10">
-                <h2 class="text-4xl md:text-5xl font-extrabold mt-2 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl md:text-5xl font-extrabold mt-2 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
                     Peran Artificial Intelligence (AI)
                 </h2>
-                <p class="text-slate-400 mt-2">AI berperan penting dalam dunia jurnalistik modern, antara lain:</p>
+                <p class="text-sm text-slate-400 mt-2">AI berperan penting dalam dunia jurnalistik modern, antara lain:</p>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div class="flex items-center gap-4 bg-purple-950/30 p-4 rounded-xl border border-purple-500/20">
                     <div class="w-8 h-8 bg-purple-500/20 rounded-lg flex items-center justify-center text-purple-300 font-bold">🤖</div>
-                    <p class="text-slate-200 font-medium text-sm md:text-base">Penulisan berita otomatis (robot journalism)</p>
+                    <p class="text-slate-200 font-medium text-xs md:text-sm">Penulisan berita otomatis (robot journalism)</p>
                 </div>
                 <div class="flex items-center gap-4 bg-purple-950/30 p-4 rounded-xl border border-purple-500/20">
                     <div class="w-8 h-8 bg-purple-500/20 rounded-lg flex items-center justify-center text-purple-300 font-bold">🤖</div>
-                    <p class="text-slate-200 font-medium text-sm md:text-base">Analisis data besar (big data)</p>
+                    <p class="text-slate-200 font-medium text-xs md:text-sm">Analisis data besar (big data)</p>
                 </div>
                 <div class="flex items-center gap-4 bg-purple-950/30 p-4 rounded-xl border border-purple-500/20">
                     <div class="w-8 h-8 bg-purple-500/20 rounded-lg flex items-center justify-center text-purple-300 font-bold">🤖</div>
-                    <p class="text-slate-200 font-medium text-sm md:text-base">Personalisasi konten sesuai minat audiens</p>
+                    <p class="text-slate-200 font-medium text-xs md:text-sm">Personalisasi konten sesuai minat audiens</p>
                 </div>
                 <div class="flex items-center gap-4 bg-purple-950/30 p-4 rounded-xl border border-purple-500/20">
                     <div class="w-8 h-8 bg-purple-500/20 rounded-lg flex items-center justify-center text-purple-300 font-bold">🤖</div>
-                    <p class="text-slate-200 font-medium text-sm md:text-base">Editing video & teks secara otomatis</p>
+                    <p class="text-slate-200 font-medium text-xs md:text-sm">Editing video & teks secara otomatis</p>
                 </div>
                 <div class="flex items-center gap-4 bg-purple-950/30 p-4 rounded-xl border border-purple-500/20">
                     <div class="w-8 h-8 bg-purple-500/20 rounded-lg flex items-center justify-center text-purple-300 font-bold">🤖</div>
-                    <p class="text-slate-200 font-medium text-sm md:text-base">Verifikasi fakta (deteksi hoaks)</p>
+                    <p class="text-slate-200 font-medium text-xs md:text-sm">Verifikasi fakta (deteksi hoaks)</p>
                 </div>
                 <div class="flex items-center gap-4 bg-purple-950/30 p-4 rounded-xl border border-purple-500/20">
                     <div class="w-8 h-8 bg-purple-500/20 rounded-lg flex items-center justify-center text-purple-300 font-bold">🤖</div>
-                    <p class="text-slate-200 font-medium text-sm md:text-base">Distribusi berita lebih tepat saran</p>
+                    <p class="text-slate-200 font-medium text-xs md:text-sm">Distribusi berita lebih tepat sasaran</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="slide5" class="flex flex-col justify-center items-center px-8 md:px-24 bg-gradient-to-br from-slate-900 to-rose-950">
+    <section id="slide5" class="flex flex-col justify-center items-center px-4 py-12 md:px-24 min-h-screen h-auto lg:h-100vh bg-gradient-to-br from-slate-900 to-rose-950">
         <div class="max-w-3xl w-full text-center">
-            <h2 class="text-4xl md:text-5xl font-extrabold mt-2 mb-10 bg-gradient-to-r from-rose-400 to-red-400 bg-clip-text text-transparent">
+            <h2 class="text-3xl md:text-5xl font-extrabold mt-2 mb-10 bg-gradient-to-r from-rose-400 to-red-400 bg-clip-text text-transparent">
                 Implementasi Jurnalisme Masa Depan
             </h2>
-            <div class="bg-slate-800/60 rounded-2xl border border-rose-500/20 p-8 text-left space-y-4 shadow-2xl">
+            <div class="bg-slate-800/60 rounded-2xl border border-rose-500/20 p-6 md:p-8 text-left space-y-4 shadow-2xl">
                 <div class="flex items-center gap-4 border-b border-slate-700/50 pb-3">
-                    <span class="w-8 h-8 bg-rose-500/20 text-rose-400 font-bold flex items-center justify-center rounded-full text-sm">1</span>
-                    <p class="text-slate-200 font-medium text-base md:text-lg">Digunakan dalam newsroom modern</p>
+                    <span class="w-7 h-7 bg-rose-500/20 text-rose-400 font-bold flex items-center justify-center rounded-full text-xs shrink-0">1</span>
+                    <p class="text-slate-200 font-medium text-sm md:text-base">Digunakan dalam newsroom modern</p>
                 </div>
                 <div class="flex items-center gap-4 border-b border-slate-700/50 pb-3">
-                    <span class="w-8 h-8 bg-rose-500/20 text-rose-400 font-bold flex items-center justify-center rounded-full text-sm">2</span>
-                    <p class="text-slate-200 font-medium text-base md:text-lg">Automasi berita sederhana (cuaca, olahraga)</p>
+                    <span class="w-7 h-7 bg-rose-500/20 text-rose-400 font-bold flex items-center justify-center rounded-full text-xs shrink-0">2</span>
+                    <p class="text-slate-200 font-medium text-sm md:text-base">Automasi berita sederhana (cuaca, olahraga)</p>
                 </div>
                 <div class="flex items-center gap-4 border-b border-slate-700/50 pb-3">
-                    <span class="w-8 h-8 bg-rose-500/20 text-rose-400 font-bold flex items-center justify-center rounded-full text-sm">3</span>
-                    <p class="text-slate-200 font-medium text-base md:text-lg">Kolaborasi AI dan jurnalis</p>
+                    <span class="w-7 h-7 bg-rose-500/20 text-rose-400 font-bold flex items-center justify-center rounded-full text-xs shrink-0">3</span>
+                    <p class="text-slate-200 font-medium text-sm md:text-base">Kolaborasi AI dan jurnalis</p>
                 </div>
                 <div class="flex items-center gap-4 border-b border-slate-700/50 pb-3">
-                    <span class="w-8 h-8 bg-rose-500/20 text-rose-400 font-bold flex items-center justify-center rounded-full text-sm">4</span>
-                    <p class="text-slate-200 font-medium text-base md:text-lg">Meningkatkan efisiensi kerja</p>
+                    <span class="w-7 h-7 bg-rose-500/20 text-rose-400 font-bold flex items-center justify-center rounded-full text-xs shrink-0">4</span>
+                    <p class="text-slate-200 font-medium text-sm md:text-base">Meningkatkan efisiensi kerja</p>
                 </div>
-                <div class="flex items-center gap-4 kes-b-0">
-                    <span class="w-8 h-8 bg-rose-500/20 text-rose-400 font-bold flex items-center justify-center rounded-full text-sm">5</span>
-                    <p class="text-slate-200 font-medium text-base md:text-lg">Mendukung pengambilan keputusan berbasis data</p>
+                <div class="flex items-center gap-4">
+                    <span class="w-7 h-7 bg-rose-500/20 text-rose-400 font-bold flex items-center justify-center rounded-full text-xs shrink-0">5</span>
+                    <p class="text-slate-200 font-medium text-sm md:text-base">Mendukung pengambilan keputusan berbasis data</p>
                 </div>
             </div>
         </div>
